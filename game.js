@@ -308,7 +308,6 @@
     ctx.strokeStyle = "#b0a3ff18"; ctx.lineWidth = 1;
     for (let x = 0; x < W; x += 80) { ctx.beginPath(); ctx.moveTo(x, 0); ctx.lineTo(x, H); ctx.stroke(); }
     ctx.fillStyle = "#e2ff9b"; ctx.fillRect(24, 598, W - 48, 2);
-    ctx.fillStyle = "#7d8f75"; ctx.font = "12px monospace"; ctx.fillText("DEFENDA A TERRA", 25, 622); ctx.textAlign = "right"; ctx.fillText("PLAYER 01", W - 25, 622); ctx.textAlign = "left";
     state.shields.forEach((block) => { if (block.health > 0) { ctx.fillStyle = block.health === 2 ? "#b4efad" : "#578f76"; ctx.fillRect(block.x, block.y, block.w - 1, block.h - 1); } });
     state.enemies.forEach((enemy) => pixels(SPRITES[enemy.row === 0 ? 0 : enemy.row < 3 ? 1 : 2], enemy.x, enemy.y, 4, COLORS[enemy.row]));
     if (state.ufo) {
