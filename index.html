@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#0a0a16" />
+    <meta name="description" content="Defenda a Terra em um clássico jogo de invasores espaciais. Jogue direto no navegador, no teclado ou no celular." />
+    <title>Space Invaders — Uma partida fora deste mundo</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="game.js" defer></script>
+  </head>
+  <body>
+    <div class="ambient ambient-one" aria-hidden="true"></div>
+    <div class="ambient ambient-two" aria-hidden="true"></div>
+
+    <div class="site-shell">
+      <header class="topbar">
+        <a class="brand" href="#top" aria-label="Space Invaders, início">
+          <span class="brand-mark" aria-hidden="true">✳</span>
+          <span>ARCADE<span class="brand-dot">.</span>01</span>
+        </a>
+        <span class="topbar-note"><span class="status-dot"></span> SISTEMA ONLINE</span>
+        <span class="topbar-tag">EST. 1978 <span aria-hidden="true">✦</span> REIMAGINADO</span>
+      </header>
+
+      <main id="top">
+        <div class="intro">
+          <div class="intro-copy">
+            <p class="eyebrow"><span></span> UM CLÁSSICO DO ARCADE</p>
+            <h1>SPACE<br /><span>INVADERS<span class="title-dot">.</span></span></h1>
+            <p class="intro-text">A galáxia está em perigo.<br class="desktop-break" /> A próxima jogada é sua.</p>
+          </div>
+          <div class="intro-decoration" aria-hidden="true">
+            <span class="orbit orbit-one"></span><span class="orbit orbit-two"></span>
+            <span class="decor-star">✦</span>
+            <span class="decor-label">MISSÃO<br />DEFESA<br />DA TERRA</span>
+          </div>
+        </div>
+
+        <div class="game-layout">
+          <section class="game-column" aria-label="Jogo Space Invaders">
+            <div class="arcade-frame">
+              <div class="frame-top">
+                <div class="frame-brand"><span class="frame-icon">✳</span> SPACE INVADERS <span class="frame-version">/ 01</span></div>
+                <div class="frame-actions">
+                  <button id="sound-button" class="icon-button" type="button" aria-label="Ativar som" aria-pressed="false" title="Ativar som">
+                    <span id="sound-icon" aria-hidden="true">♪</span><span class="sound-label">SOM <span id="sound-state">OFF</span></span>
+                  </button>
+                  <button id="pause-button" class="icon-button pause-button" type="button" aria-label="Pausar jogo" title="Pausar jogo" disabled><span aria-hidden="true">Ⅱ</span></button>
+                </div>
+              </div>
+
+              <div class="scoreboard" aria-label="Placar">
+                <div><span class="stat-label">PONTOS</span><strong id="score">000000</strong></div>
+                <div><span class="stat-label">RECORDE</span><strong id="high-score">000000</strong></div>
+                <div><span class="stat-label">ONDA</span><strong id="wave">01</strong></div>
+                <div><span class="stat-label">VIDAS</span><strong id="lives" class="lives" aria-label="3 vidas">♥ ♥ ♥</strong></div>
+              </div>
+
+              <div class="screen-wrap">
+                <canvas id="game" width="960" height="640" aria-label="Campo de batalha do Space Invaders"></canvas>
+                <div class="scanlines" aria-hidden="true"></div>
+                <div class="game-overlay" id="overlay">
+                  <div class="overlay-art" aria-hidden="true">✳</div>
+                  <p class="overlay-kicker" id="overlay-kicker">PREPARE-SE, PILOTO</p>
+                  <h2 id="overlay-title">A INVASÃO<br /><span>COMEÇOU.</span></h2>
+                  <p id="overlay-description">Defenda a Terra. Desvie dos ataques.<br />Não deixe nenhum invasor passar.</p>
+                  <button class="start-button" id="start-button" type="button"><span id="start-label">INICIAR JOGO</span> <span aria-hidden="true">↗</span></button>
+                  <p class="overlay-hint" id="overlay-hint">PRESSIONE ENTER PARA COMEÇAR</p>
+                </div>
+                <div id="announcement" class="sr-only" aria-live="polite" aria-atomic="true"></div>
+              </div>
+
+              <div class="frame-bottom"><span><span class="status-dot"></span> PLAYER 01</span><span>BOA SORTE LÁ EM CIMA <span aria-hidden="true">✦</span></span></div>
+            </div>
+
+            <div class="touch-controls" aria-label="Controles de toque">
+              <div class="touch-movement">
+                <button type="button" class="touch-button" data-control="left" aria-label="Mover para a esquerda">←</button>
+                <button type="button" class="touch-button" data-control="right" aria-label="Mover para a direita">→</button>
+              </div>
+              <span class="touch-caption">SEGURE PARA MOVER</span>
+              <button type="button" class="touch-button touch-fire" data-control="fire" aria-label="Atirar">✳ <span>ATIRAR</span></button>
+            </div>
+            <div class="game-caption"><span><span class="caption-square"></span> SUA MISSÃO COMEÇA AQUI</span><span>01 / ∞</span></div>
+          </section>
+
+          <aside class="mission-panel" aria-label="Instruções do jogo">
+            <div class="panel-topline"><span>MANUAL DO PILOTO</span><span>✳</span></div>
+            <h2>PRONTO<br />PARA <em>JOGAR?</em></h2>
+            <p class="panel-copy">Uma nave. Uma missão. Uma galáxia inteira para defender.</p>
+            <div class="panel-divider"></div>
+            <p class="section-label">COMO JOGAR <span>↘</span></p>
+            <div class="control-row"><div class="key-group"><kbd>←</kbd><kbd>→</kbd></div><span>Mover a nave</span></div>
+            <div class="control-row"><div class="key-group"><kbd class="key-wide">ESPAÇO</kbd></div><span>Disparar</span></div>
+            <div class="control-row"><div class="key-group"><kbd>P</kbd></div><span>Pausar o jogo</span></div>
+            <p class="mobile-help">No celular, use os botões abaixo do jogo.</p>
+            <div class="panel-divider"></div>
+            <p class="section-label">SUA MISSÃO <span>↘</span></p>
+            <p class="mission-copy">Elimine os invasores antes que eles cheguem até você. Use os escudos com sabedoria e fique de olho na nave bônus.</p>
+            <div class="panel-footer"><span>✦</span><span>O UNIVERSO<br />CONTA COM VOCÊ.</span></div>
+          </aside>
+        </div>
+      </main>
+
+      <footer class="footer"><span>FEITO PARA QUEM NUNCA DEIXOU DE JOGAR <span aria-hidden="true">✳</span></span><span>FIM DA TRANSMISSÃO <span aria-hidden="true">✦</span></span></footer>
+    </div>
+  </body>
+</html>
